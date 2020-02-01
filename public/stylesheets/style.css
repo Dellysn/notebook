@@ -11,13 +11,15 @@ body {
 }
 
 .main-view {
-  height: 100%;
+  min-height: 100vh;
+  position: relative;
 }
 
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 9999;
 }
 
 a {
@@ -43,7 +45,7 @@ a {
 #sidebar {
   height: 100%;
   width: 20%;
-  background: #b65151;
+  background: #d8b3b3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -110,4 +112,20 @@ h1 {
 
 code {
   text-align: center;
+}
+
+/* alerts */
+.alert {
+  width: 100%;
+  margin: .5rem auto;
+  padding: 1rem;
+  height: auto;
+  border-radius: .5rem;
+
+
+}
+
+.alert.alert-danger {
+  background-color: rgb(248, 123, 123);
+
 }

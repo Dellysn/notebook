@@ -1,20 +1,29 @@
-<form>
+<form action="/users/signup" method="POST">
     <div class="row form-row">
         <br><br>
-        <h2>Please sign up</h2>
-        <div class="five columns">
-            <label for="fullname">Full Name</label>
-            <input class="u-full-width" type="text" placeholder="fullname" id="fullname">
-            <label for="username">Username:</label>
-            <input class="u-full-width" type="text" placeholder="Username" id="username">
-            <label for="exampleEmailInput">Email:</label>
-            <input class="u-full-width" type="email" placeholder="user@domain.com" id="email">
-            <label for="password">Password</label>
-            <input class="u-full-width" type="password" placeholder="password" id="password">
-            <label for="password2">Confirm Password</label>
-            <input class="u-full-width" type="password" placeholder="confirm password" id="password2">
+        <h3>Please sign up</h3>
 
-            <input class="button-primary" type="submit" value="Submit">
+
+
+        <div class="five columns"> {{> _flash-messages}}
+            <label for="firstname">First Name</label>
+            <input class="u-full-width" type="text" placeholder="firstname" name="firstname" id="firstname"
+                value="{{firstname}}">
+            <label for="lastname">Last Name</label>
+            <input class="u-full-width" type="text" placeholder="lastname" name="lastname" id="lastname"
+                value="{{lastname}}">
+            <label for="exampleEmailInput">Email:</label>
+            <input class="u-full-width" type="email" placeholder="user@domain.com" name="email" id="email"
+                value="{{email}}">
+            <label for="password">Password</label>
+            <input class="u-full-width" type="password" placeholder="password" name="password" id="password"
+                value="{{password}}">
+            <label for="password2">Confirm Password</label>
+            <input class="u-full-width" type="password" placeholder="confirm password" name="password2" id="password2"
+                value="{{password2}}">
+
+            <input class="button-primary" type="submit" value="sign up" id="signup-btn">
+
             <hr>
             <a href="/users/signin" class="button"> sign in </a>
         </div>

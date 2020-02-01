@@ -1,0 +1,31 @@
+<form action="/users/write" method="POST">
+    <br>
+    <br>
+    <div class="row form-row">
+
+        {{#if message}}
+        <h1>{{message}}</h1>
+        {{/if}}
+        <div class="nine columns">
+            <label for="title">Title:</label>
+            <input class="u-full-width" type="text" placeholder="title" name="title" id="title">
+            <label for="exampleMessage">Note:</label>
+            <textarea class="u-full-width" name="noteBody" id="exampleMessage">
+
+            </textarea>
+            <script>
+                CKEDITOR.replace('noteBody', {
+                    plugins: 'wysiwygarea,toolbar,basicstyles,link'
+                });
+
+
+
+            </script>
+
+            <br>
+            <input class="button-primary" type="submit" value="Submit">
+        </div>
+
+    </div>
+
+</form>

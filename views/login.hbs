@@ -1,11 +1,12 @@
-<form>
+<form id="login">
     <div class="row form-row">
         <h2>Please sign in</h2>
         <div class="five columns">
-            <label for="exampleEmailInput">Username:</label>
-            <input class="u-full-width" type="email" placeholder="username" id="exampleEmailInput">
-            <label for="exampleMessage">Password:</label>
-            <input class="u-full-width" type="email" placeholder="password" id="exampleEmailInput">
+            {{> _flash-messages}}
+            <label for="exampleEmailInput">Email:</label>
+            <input class="u-full-width" type="email" placeholder="user@domain.com" name="email" id="email">
+            <label for="password">Password</label>
+            <input class="u-full-width" type="password" placeholder="password" name="password" id="password">
 
             <input class="button-primary" type="submit" value="Submit">
             <hr>
