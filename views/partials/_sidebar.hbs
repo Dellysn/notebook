@@ -1,5 +1,9 @@
 <nav id="sidebar">
     {{!-- {{> _user-data}} --}}
-    <h6>No User available but you can explore notes</h6>
+    {{#if user}}
+
     <h6> </h6>
+    {{else}}
+    <h6>No User available but you can explore notes</h6>
+    {{/if}}
 </nav>
