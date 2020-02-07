@@ -20,19 +20,18 @@
 
 
   {{> _navbar}}
-  <div class="container-fluid">
-    <div class="row">
-      <div class="three columns">
-        {{> _sidebar}}
-      </div>
-      <div class="nine columns">
-        <div class="main-view">
-          {{{body}}}
-        </div>
 
-      </div>
+  <div class="container-fluid">
+    <div>
+      {{> _sidebar}}
     </div>
+
+    <div class="main-view">
+      {{{body}}}
+    </div>
+
   </div>
+
 
 
   {{!-- {{> _footer}} --}}

@@ -1,4 +1,4 @@
-<nav id="sidebar">
+<nav class=" sidebar">
     {{#if user}}
     <img src="https://ui-avatars.com/api/?size=150&name={{user.firstname}}+{{user.lastname}}"
         alt="{{user.firstname}}{{ user.lastname}}">
@@ -21,11 +21,44 @@
 
     </ul>
     {{else}}
-    <h6>No User available but you can explore notes</h6>
+    <h6 class="empty-note">No User available, you can <a href="/users/signin">log in</a> to explore notes</h6>
     {{/if}}
 </nav>
 
 
 <script>
 
+    document.addEventListener("click", function (e) {
+
+        if (!e.target.matches(".toggle")) return false;
+
+        const sidebar = document.querySelector(".sidebar");
+        const mainView = document.querySelector(".main-view");
+        if (sidebar.classList.contains("show")) {
+            sidebar.classList.remove("show");
+            mainView.classList.remove("slideOut")
+        } else {
+            sidebar.classList.add("show");
+            mainView.classList.add("slideOut")
+        }
+    })
+
+
+
+
+
+
+
 </script>
+{{!-- <script>
+    document.querySelector("#open").addEventListener("click", function (e) {
+        e.preventDefault();
+        document.querySelector(".side-nav").style.width = "100%";
+        document.getElementById("main").style.marginRight = "550px";
+    });
+    document.querySelector("#close").addEventListener("click", function (e) {
+        e.preventDefault();
+        document.querySelector(".side-nav").style.width = "0";
+        document.getElementById("main").style.marginRight = "0";
+    });
+</script> --}}

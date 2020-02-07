@@ -3,7 +3,9 @@
 
     {{#if notes}}
     {{#each notes}}
-    <a href="/users/notes/{{id}}" class="button note-bullets"> {{title}}</a>
+    <div class="button note-bullets">
+        <a href="/users/notes/{{id}}"> {{title}} </a> <span class="delete">&times;</span>
+    </div>
 
     {{/each}}
     {{else}}

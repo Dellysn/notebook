@@ -25,11 +25,11 @@
     {{message.info}}
 </div>
 {{/if}}
+
 <script>
     setTimeout(() => {
         document.querySelectorAll(".alert").forEach((alert) => {
-            alert.style.transform = "translateX(1200px)";
-
+            alert.style.visibility = "hidden";
         })
     }, 3000)
 
