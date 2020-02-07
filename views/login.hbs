@@ -1,18 +1,20 @@
 <form action="/users/signin" method="POST">
     <div class="row form-row">
         <h2>Please sign in</h2>
+
         <div class="five columns">
+            {{> _flash-messages}}
             <label for="exampleEmailInput">Email:</label>
             <input class="u-full-width" type="email" placeholder="user@domain.com" name="email" id="email">
             <label for="password">Password</label>
             <input class="u-full-width" type="password" placeholder="password" name="password" id="password">
             <input class="button-primary" type="submit" value="Submit">
             <hr>
-            {{> _flash-messages}}
 
-            <p>You don't have an account yet?
 
-            </p><a href="/users/signup"> sign up </a>
+            <p>You don't have an account yet? <a href="/users/signup"> sign up </a> here.
+
+            </p>
         </div>
 
     </div>

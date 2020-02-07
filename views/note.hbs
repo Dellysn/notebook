@@ -1,0 +1,13 @@
+<div class="row notes">
+    {{#if note}}
+    {{#each note}}
+    <div class="note-body">
+        {{ noteBody}}
+    </div>
+    {{/each}}
+    {{else}}
+    <div class="twelve columns">
+        <h2>not available</h2>
+    </div>
+    {{/if}}
+</div>

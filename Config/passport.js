@@ -6,7 +6,7 @@ module.exports = function (passport) {
   passport.use(
     new LocalStrategy({
         usernameField: "email",
-
+        session: true
       },
       function (email, password, done) {
         //    Find User by email

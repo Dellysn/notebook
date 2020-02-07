@@ -1,26 +1,36 @@
 {{#if errors}}
-
 {{#each errors}}
 <div class="alert alert-danger">
     {{msg}}
 </div>
 {{/each}}
 {{/if}}
-{{#if success_message}}
+{{#if success_msg}}
 <div class="alert alert-success">
-    {{this.success_message}}
+    {{success_msg}}
 </div>
 {{/if}}
-
-{{#if error_message}}
+{{#if error_msg}}
 <div class="alert alert-danger">
-    {{error_message}}
+    {{error_msg}}
 </div>
 {{/if}}
-
 {{#if error}}
 <div class="alert alert-danger">
     {{error}}
 </div>
-
 {{/if}}
+{{#if message}}
+<div class="alert alert-success">
+    {{message.info}}
+</div>
+{{/if}}
+<script>
+    setTimeout(() => {
+        document.querySelectorAll(".alert").forEach((alert) => {
+            alert.style.transform = "translateX(1200px)";
+
+        })
+    }, 3000)
+
+</script>

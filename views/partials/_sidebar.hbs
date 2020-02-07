@@ -1,9 +1,31 @@
 <nav id="sidebar">
-    {{!-- {{> _user-data}} --}}
     {{#if user}}
+    <img src="https://ui-avatars.com/api/?size=150&name={{user.firstname}}+{{user.lastname}}"
+        alt="{{user.firstname}}{{ user.lastname}}">
+    <ul>
+        <li>{{user.firstname}},{{ user.lastname}}</li>
+        <li>{{user.email}}</li>
 
-    <h6> </h6>
+
+        <li>
+
+            <a href="/users/notes">My Notes <span class="badges">5</span></a>
+
+        </li>
+        <li>
+            <a href="/users/write">New Note</a>
+        </li>
+        </li>
+
+        <li><a href="/users/logout" class="button">Signout</a></li>
+
+    </ul>
     {{else}}
     <h6>No User available but you can explore notes</h6>
     {{/if}}
 </nav>
+
+
+<script>
+
+</script>

@@ -1,0 +1,14 @@
+<div class="row notes">
+
+
+    {{#if notes}}
+    {{#each notes}}
+    <a href="/users/notes/{{id}}" class="button note-bullets"> {{title}}</a>
+
+    {{/each}}
+    {{else}}
+    <div class="twelve columns">
+        <h2>You currently have no notes</h2>
+    </div>
+    {{/if}}
+</div>

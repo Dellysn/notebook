@@ -4,16 +4,24 @@ const {
   signupPage,
   createUser,
   loginPage,
-  login
+  login,
+  logout
 } = require("../Controllers/userController");
 const noteRouter = require("../Controllers/noteControllers");
+const {
+  ensureAuthentication
+} = require("../Config/auth")
 // const { validate, validatorRule } = require("../helpers/expressValidators");
 
 router.get("/signup", signupPage);
 router.post("/signup", createUser);
 router.get("/signin", loginPage);
 router.post("/signin", login);
-router.get("/write", (req, res) => {
+router.get("/logout", logout);
+router.get("/notes", ensureAuthentication, noteRouter.getAllNotes);
+router.get("/notes/:id", ensureAuthentication, noteRouter.getNotesById);
+
+router.get("/write", ensureAuthentication, (req, res) => {
   res.render("form", {
     title: "write note here"
   });

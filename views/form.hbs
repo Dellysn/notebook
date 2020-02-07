@@ -5,10 +5,9 @@
     <br>
     <div class="row form-row">
 
-        {{#if message}}
-        <h1>{{message}}</h1>
-        {{/if}}
+
         <div class="nine columns">
+            {{> _flash-messages}}
             <label for="title">Title:</label>
             <input class="u-full-width" type="text" placeholder="title" name="title" id="title">
             <label for="exampleMessage">Note:</label>

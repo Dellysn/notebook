@@ -3,16 +3,17 @@ const bcrypt = require("bcryptjs");
 
 module.exports = {
   signupPage: function (req, res, next) {
-    console.log(req.user);
     res.render("register", {
       title: "Register"
     })
 
   },
   loginPage: function (req, res) {
-    req.flash("success_msg", " Welcome to login page")
+
     res.render("login", {
-      title: "Sign In"
+      title: "Sign In",
+      message: req.flash("info")
+
     });
   },
   createUser: function (req, res) {
@@ -59,7 +60,7 @@ module.exports = {
     }).then(user => {
       if (user.length > 0) {
         errors.push({
-          msg: "user already exist try using a unique email"
+          msg: "user already exist try using another email"
         })
         res.render("register", {
           firstname,
@@ -84,7 +85,7 @@ module.exports = {
             if (err) throw err;
             newUser.password = hash;
             newUser.save().then(function (user) {
-              console.log(req.flash("success_message", "you are now registered and can login"));
+              console.log(req.flash("success_msg", "you are now registered and can login"));
               res.redirect("/users/signin")
             }).catch(function (err) {
               console.error(err)
@@ -103,11 +104,17 @@ module.exports = {
   },
   login: function (req, res, next) {
     const passport = require("passport");
+
     passport.authenticate("local", {
-      successRedirect: '/users/write',
+      successRedirect: "/",
       failureRedirect: "/users/signin",
+      successFlash: "Welcome!",
       failureFlash: true
     })(req, res, next);
-
+  },
+  logout: function (req, res) {
+    req.logout();
+    req.flash("success_msg", "You are logged out successfully!");
+    res.redirect('/users/signin')
   }
 }

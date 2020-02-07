@@ -1,11 +1,16 @@
 <div class="welcome-note">
-  <h2>welcome to NoteBook App</h2>
+  {{#if user}}
+  <h2>Welcome, {{user.firstname}}! </h2>
   <p>
     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium ab aperiam tempore odio ea sunt nihil sit
     error quas, sequi aliquam, necessitatibus fugit laborum corporis vitae maiores consequatur rerum dicta? Totam magnam
     laboriosam consequuntur tempore sint debitis quasi nostrum porro unde tenetur quae, inventore, ea minima quis omnis
     consectetur illo!</p>
   <p>
-    <a href="/users/signin" class="button button-primary"> Get Started</a>
+    <a href="/users/write" class="button button-primary"> Get Started</a>
   </p>
+  {{else}}
+  <h2>Login <a href="/users/signin">here</a> to get started </h2>
+  {{/if}}
+
 </div>
