@@ -8,10 +8,12 @@ body {
   margin: inherit;
   padding: inherit;
 }
+
 a {
   text-decoration: none;
   color: #000000;
 }
+
 .menu-list a,
 .bullets a,
 .site-name a {
@@ -36,6 +38,7 @@ a {
   background: url(../images/student.png) no-repeat;
   background-size: contain;
   background-position: 100% 100%;
+
 }
 
 .sidebar {
@@ -75,6 +78,24 @@ a {
   margin: auto;
 }
 
+.note-body {
+  border: 2px solid;
+  border-radius: 5px;
+  padding: 2rem;
+  margin-top: 6rem;
+  position: relative;
+  background: palegoldenrod;
+  height: 500px;
+  overflow-y: scroll;
+}
+
+.button.edit {
+  position: fixed;
+  background: rgb(246, 186, 74);
+  right: 6%;
+  top: 20%;
+}
+
 .button.bullets {
   border: none;
   background: rgb(0, 123, 123);
@@ -83,16 +104,18 @@ a {
   margin: 1.5rem;
   position: relative;
 }
+
 .button.bullets a {
   color: #f0f0f0;
   margin-right: 5rem;
 }
 
-.button.bullets > .delete {
+.button.bullets>.delete {
   margin-left: 1rem;
   color: rgba(248, 123, 123);
 }
-.button.bullets > .delete:hover {
+
+.button.bullets>.delete:hover {
   color: #c7665a;
 }
 
@@ -105,9 +128,11 @@ a {
   display: none;
   transition: all 500ms;
 }
+
 .toggle.turn {
   transform: rotate(45deg);
 }
+
 .sidebar.show {
   margin-left: 0;
   position: fixed;
@@ -177,11 +202,13 @@ a {
   top: 12.5%;
   left: 0;
 }
+
 /* @buttons */
 .notes .button {
   border: none;
   border-radius: 0;
 }
+
 .button.button-danger {
   background: rgba(248, 123, 123);
   position: absolute;
@@ -198,6 +225,7 @@ a {
   padding: 0.5rem;
   color: #f0f0f0;
 }
+
 /* @add Button */
 .add {
   font-size: 3rem;
@@ -218,8 +246,7 @@ a {
 
 /* Larger than mobile */
 @media (min-width: 400px) {
-  .main-view {
-  }
+  .main-view {}
 }
 
 @media (max-width: 768px) {
@@ -243,8 +270,7 @@ a {
 
 /* Larger than Phablet */
 @media (max-width: 550px) {
-  .main-view {
-  }
+  .main-view {}
 
   form {
     width: 50%;
@@ -261,12 +287,10 @@ a {
 
 /* Larger than desktop */
 @media (min-width: 1000px) {
-  .main-view {
-  }
+  .main-view {}
 }
 
 /* Larger than desktop HD */
 @media (min-width: 1200px) {
-  .main-view {
-  }
+  .main-view {}
 }

@@ -1,10 +1,12 @@
-<div class="row notes">
+<div class="notes">
     {{#if note}}
     {{#each note}}
     <div class="note-body">
         {{ noteBody}}
+        <a href="/users/notes/edit/{{id}}" class=" button edit">Edit</a>
     </div>
-    <div class="button back">Back</div>
+
+
     {{/each}}
     {{else}}
     <div class="twelve columns">

@@ -50,3 +50,49 @@ exports.deleteSingleNote = function (req, res) {
     console.log(err)
   })
 }
+
+exports.editSingleNote = function (req, res) {
+  let condition = {
+    _id: req.params.id
+  }
+  Notebook.findOne(condition).then(function (note) {
+    res.status(200).render("edit-note", {
+      title: "Edit Note",
+      note
+
+    })
+
+  }).catch(function (err) {
+    console.log(err)
+  })
+}
+
+exports.editSingleNoteAndUpdate = function (req, res) {
+  let condition = {
+    _id: req.params.id
+  }
+  Notebook.findOne(condition).then(function (note) {
+    let {
+      title,
+      noteBody
+    } = req.body;
+    note.title = title;
+    note.noteBody = noteBody;
+    note.save().then(function (result) {
+      if (result) {
+        req.flash("success_msg", "note updated successfully!");
+        res.redirect("/users/notes/" + req.params.id);
+      }
+    }).catch(function (err) {
+      if (err) {
+        req.flash("error_msg", "There is trouble updating  your note, please try again!");
+        res.redirect("/users/notes/" + req.params.id);
+        throw err;
+      }
+    })
+
+
+
+  })
+
+}

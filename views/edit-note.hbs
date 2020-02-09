@@ -1,0 +1,29 @@
+<script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+{{#if note}}
+<form action="/users/notes/edit/{{note.id}}?_method=PUT" method="POST">
+    <br>
+    <br>
+
+    <div class="row form-row">
+
+        <div class="nine columns">
+            <label for="title">Title:</label>
+            <input class="u-full-width" type="text" placeholder="title" name="title" id="title" value="{{note.title}}">
+            <label for="exampleMessage">Note:</label>
+            <textarea class="u-full-width" name="noteBody" id="exampleMessage">
+                {{note.noteBody}}
+            </textarea>
+            <script>
+                CKEDITOR.replace('noteBody', {
+                    plugins: 'wysiwygarea,toolbar,basicstyles,link'
+                });
+            </script>
+            <br>
+            <input type="hidden" name="_method" value="PUT">
+            <button type="submit" class="button primary">Edit</button>
+        </div>
+
+    </div>
+
+</form>
+{{/if}}

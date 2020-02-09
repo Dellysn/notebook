@@ -21,6 +21,8 @@ router.get("/logout", logout);
 router.get("/notes", ensureAuthentication, noteRouter.getAllNotes);
 router.get("/notes/:id", ensureAuthentication, noteRouter.getNotesById);
 router.delete("/notes/delete/:id", ensureAuthentication, noteRouter.deleteSingleNote);
+router.get("/notes/edit/:id", ensureAuthentication, noteRouter.editSingleNote);
+router.put("/notes/edit/:id", ensureAuthentication, noteRouter.editSingleNoteAndUpdate);
 
 router.get("/write", ensureAuthentication, (req, res) => {
   res.render("form", {
