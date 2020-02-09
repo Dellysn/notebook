@@ -16,7 +16,8 @@ const passport = require("passport");
 const app = express();
 const {
   parseHTML
-} = require("./helpers/handlebars")
+} = require("./helpers/handlebars");
+const methodOverride = require("method-override");
 mongoose.Promise = global.Promise;
 
 // PASSPORT CONFIGURATIONS
@@ -42,6 +43,8 @@ app.engine(
   })
 );
 
+// method Override middleware
+app.use(methodOverride("_method"));
 app.set("views", path.join(__dirname, "views"));
 // Static files
 app.use(express.static(path.join(__dirname, "public")));

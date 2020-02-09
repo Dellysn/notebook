@@ -1,5 +1,5 @@
 const Notebook = require("../models/Note");
-exports.createNote = async function(req, res) {
+exports.createNote = async function (req, res) {
   let notes = {
     title: req.body.title,
     noteBody: req.body.noteBody,
@@ -9,31 +9,44 @@ exports.createNote = async function(req, res) {
   let newNote = new Notebook(notes);
   await newNote
     .save()
-    .then(function(result) {
+    .then(function (result) {
       req.flash("success_msg", "note added successfully");
       res.redirect("/users/notes");
     })
-    .catch(function(err) {
+    .catch(function (err) {
       console.error(err);
     });
 };
-exports.getAllNotes = function(req, res) {
+exports.getAllNotes = function (req, res) {
   Notebook.find({
     user: req.user.id
-  }).then(function(notes) {
+  }).then(function (notes) {
     res.render("notes", {
       notes,
       title: "Notes"
     });
   });
 };
-exports.getNotesById = function(req, res) {
+exports.getNotesById = function (req, res) {
   let condition = {
     _id: req.params.id
   };
-  Notebook.find(condition).then(function(note) {
+  Notebook.find(condition).then(function (note) {
     res.render("note", {
       note
     });
   });
 };
+
+exports.deleteSingleNote = function (req, res) {
+
+  let condition = {
+    _id: req.params.id
+  }
+  Notebook.findOneAndRemove(condition).then(function (result) {
+    req.flash("success_msg", "Note successfully deleted!");
+    res.redirect("/users/notes");
+  }).catch(function (err) {
+    console.log(err)
+  })
+}

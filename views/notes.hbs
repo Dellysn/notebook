@@ -1,10 +1,18 @@
-<div class="row notes">
+<div class=" notes">
 
 
     {{#if notes}}
     {{#each notes}}
-    <div class="button note-bullets">
-        <a href="/users/notes/{{id}}"> {{title}} </a> <span class="delete">&times;</span>
+    <div class="button bullets">
+
+        <div class="bullet-container">
+            <a href="/users/notes/{{id}}"> {{title}} </a>
+            <form action="/users/notes/delete/{{id}}?_method=DELETE" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" class="button button-danger">&times;</button>
+            </form>
+        </div>
+
     </div>
 
     {{/each}}

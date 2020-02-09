@@ -1,23 +1,24 @@
 <nav class=" sidebar">
+
     {{#if user}}
     <img src="https://ui-avatars.com/api/?size=150&name={{user.firstname}}+{{user.lastname}}"
-        alt="{{user.firstname}}{{ user.lastname}}">
+        alt="{{user.firstname}} {{ user.lastname}}">
     <ul>
-        <li>{{user.firstname}},{{ user.lastname}}</li>
-        <li>{{user.email}}</li>
+        <li class="menu-list">{{user.firstname}}, {{ user.lastname}}</li>
+        <li class="menu-list">{{user.email}}</li>
 
 
-        <li>
+        <li class="menu-list">
 
             <a href="/users/notes">My Notes <span class="badges">5</span></a>
 
         </li>
-        <li>
+        <li class="menu-list">
             <a href="/users/write">New Note</a>
         </li>
         </li>
 
-        <li><a href="/users/logout" class="button">Signout</a></li>
+        <li class="menu-list"><a href="/users/logout" class="button">Signout</a></li>
 
     </ul>
     {{else}}
@@ -34,12 +35,17 @@
 
         const sidebar = document.querySelector(".sidebar");
         const mainView = document.querySelector(".main-view");
+        const toggle = document.querySelector(".toggle");
         if (sidebar.classList.contains("show")) {
             sidebar.classList.remove("show");
-            mainView.classList.remove("slideOut")
+            mainView.classList.remove("slideOut");
+            toggle.classList.remove("turn");
+
         } else {
             sidebar.classList.add("show");
-            mainView.classList.add("slideOut")
+            mainView.classList.add("slideOut");
+            toggle.classList.add("turn");
+
         }
     })
 
@@ -50,15 +56,3 @@
 
 
 </script>
-{{!-- <script>
-    document.querySelector("#open").addEventListener("click", function (e) {
-        e.preventDefault();
-        document.querySelector(".side-nav").style.width = "100%";
-        document.getElementById("main").style.marginRight = "550px";
-    });
-    document.querySelector("#close").addEventListener("click", function (e) {
-        e.preventDefault();
-        document.querySelector(".side-nav").style.width = "0";
-        document.getElementById("main").style.marginRight = "0";
-    });
-</script> --}}
