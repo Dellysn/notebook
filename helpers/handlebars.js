@@ -1,10 +1,5 @@
 module.exports = {
-    parseHTML: function (input) {
-        document.querySelectorAll(".note-body").forEach(function (noteBody) {
-            noteBody.innerHTML = input;
-        })
-
-
-
-    }
+    stripTags: function (input) {
+        return input.replace(/<(?:.|\n)*?>/gm, '');
+    },
 }

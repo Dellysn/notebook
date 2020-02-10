@@ -17,33 +17,56 @@ exports.createNote = async function (req, res) {
       console.error(err);
     });
 };
-exports.getAllNotes = function (req, res) {
-  Notebook.find({
+exports.getAllNotes = async function (req, res) {
+  await Notebook.find({
     user: req.user.id
   }).then(function (notes) {
-    res.render("notes", {
-      notes,
-      title: "Notes"
-    });
-  });
+    if (notes) {
+      Notebook.countDocuments({
+        user: req.user.id
+      }).then(function (docs) {
+        res.render("notes", {
+          notes,
+          docs,
+          title: "Notes"
+        });
+
+      })
+    }
+
+  }).catch(function (err) {
+    throw err;
+  })
 };
-exports.getNotesById = function (req, res) {
+exports.getNotesById = async function (req, res) {
   let condition = {
     _id: req.params.id
   };
-  Notebook.find(condition).then(function (note) {
-    res.render("note", {
-      note
-    });
+  await Notebook.find(condition).then(function (note) {
+    if (note) {
+      Notebook.countDocuments({
+        user: req.user.id
+      }).then(function (docs) {
+        res.render("note", {
+          note,
+          docs,
+          title: "Note::Reading"
+        });
+
+      })
+    }
+
+  }).catch(function (err) {
+    throw err;
   });
 };
 
-exports.deleteSingleNote = function (req, res) {
+exports.deleteSingleNote = async function (req, res) {
 
   let condition = {
     _id: req.params.id
   }
-  Notebook.findOneAndRemove(condition).then(function (result) {
+  await Notebook.findOneAndRemove(condition).then(function (result) {
     req.flash("success_msg", "Note successfully deleted!");
     res.redirect("/users/notes");
   }).catch(function (err) {
@@ -51,11 +74,11 @@ exports.deleteSingleNote = function (req, res) {
   })
 }
 
-exports.editSingleNote = function (req, res) {
+exports.editSingleNote = async function (req, res) {
   let condition = {
     _id: req.params.id
   }
-  Notebook.findOne(condition).then(function (note) {
+  await Notebook.findOne(condition).then(function (note) {
     res.status(200).render("edit-note", {
       title: "Edit Note",
       note

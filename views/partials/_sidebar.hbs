@@ -4,21 +4,25 @@
     <img src="https://ui-avatars.com/api/?size=150&name={{user.firstname}}+{{user.lastname}}"
         alt="{{user.firstname}} {{ user.lastname}}">
     <ul>
+        <li class="menu-list"><a href="/users/logout" class="button">Signout</a></li>
         <li class="menu-list">{{user.firstname}}, {{ user.lastname}}</li>
         <li class="menu-list">{{user.email}}</li>
 
 
         <li class="menu-list">
 
-            <a href="/users/notes">My Notes <span class="badges">5</span></a>
+            {{#if docs}}
+            <a href="/users/notes">My Notes <span class="badges">{{docs}}</span></a>
+            {{else}}
+            <a href="/users/notes">My Notes </a>
+
+
+            {{/if}}
+        </li>
 
         </li>
-        <li class="menu-list">
-            <a href="/users/write">New Note</a>
-        </li>
-        </li>
 
-        <li class="menu-list"><a href="/users/logout" class="button">Signout</a></li>
+
 
     </ul>
     {{else}}

@@ -1,3 +1,17 @@
+/* 
+@Iguanna green: #69B578
+@amazon: #3A7D44
+@Cal poly pomona green: #254D32
+@Dark Jungle Green: #181D27
+@Light Green: #A1EF8B
+@Gainsboro: #D8D9D9
+@Gainsboro: #DDDEDD
+@Isabelline: #EAEBEA
+@Honeydew: #ECF9ED
+@platinum: #DFE6E1
+
+*/
+
 html {
   margin: 0;
   padding: 0;
@@ -7,6 +21,7 @@ body {
   /* overflow-y: hidden; */
   margin: inherit;
   padding: inherit;
+  font-family: "Nanum Gothic", sans-serif !important;
 }
 
 a {
@@ -22,12 +37,18 @@ a {
 
 .navbar {
   width: 100%;
-  background-color: #f0f0f0;
+  background-color: rgb(80, 219, 166);
   padding: 1.2rem;
   text-align: center;
   position: fixed;
   top: 0;
   z-index: 9999;
+
+}
+
+.navbar .site-name a,
+.navbar .toggle {
+  color: #f0f0f0;
 }
 
 .container-fluid {
@@ -44,7 +65,7 @@ a {
 .sidebar {
   height: 100vh;
   width: 100%;
-  background-color: #c7665a;
+  background-color: #ECF9ED;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -66,6 +87,13 @@ a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+
+}
+
+.five.columns {
+  background: rgba(236, 249, 237, 0.76);
+  padding: 2rem;
 }
 
 .welcome-note {
@@ -79,21 +107,33 @@ a {
 }
 
 .note-body {
-  border: 2px solid;
+  /* border: 2px solid; */
   border-radius: 5px;
   padding: 2rem;
   margin-top: 6rem;
   position: relative;
-  background: palegoldenrod;
+  background: #ECF9ED;
   height: 500px;
   overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.note-body article {
+  overflow-wrap: break-word;
+  margin-right: 2rem;
+  padding-left: 2rem;
+  width: 80%;
+  word-spacing: 5px;
 }
 
 .button.edit {
-  position: fixed;
+
   background: rgb(246, 186, 74);
-  right: 6%;
-  top: 20%;
+  position: absolute;
+  top: 8%;
+  right: 0;
+  bottom: 0;
+  color: #f0f0f0;
 }
 
 .button.bullets {
@@ -146,14 +186,14 @@ a {
   overflow: hidden;
 }
 
-.sidebar ul li:not(:last-child) {
+.sidebar ul li:not(:first-child) {
   width: 100%;
   font-size: 1.9rem;
   background-color: #f0f0f0;
   padding: 1rem 1rem;
 }
 
-.sidebar ul li:last-child .button {
+.sidebar ul li:first-child .button {
   background-color: rgba(248, 123, 123);
   border: none;
   border-radius: 0;
@@ -167,7 +207,7 @@ a {
 
 .sidebar .empty-note {
   padding: 2rem;
-  color: #f0f0f0;
+  color: #464545;
   font-weight: 800;
 }
 
@@ -209,12 +249,24 @@ a {
   border-radius: 0;
 }
 
+.button {
+  border-radius: 0 !important;
+  border: none !important;
+}
+
 .button.button-danger {
   background: rgba(248, 123, 123);
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
+  color: #f0f0f0;
+}
+
+.button.button-success {
+  background: rgb(71, 194, 102);
+  color: #f0f0f0;
+
 }
 
 /* @Badges */
@@ -232,7 +284,7 @@ a {
   position: fixed;
   right: 5%;
   bottom: 5%;
-  background: #0d0d0d;
+  background: #0d0d0daf;
   padding: 1rem;
   width: 50px;
   height: 50px;
@@ -245,9 +297,6 @@ a {
 /* mobile first queries */
 
 /* Larger than mobile */
-@media (min-width: 400px) {
-  .main-view {}
-}
 
 @media (max-width: 768px) {
   .container-fluid {
@@ -257,6 +306,8 @@ a {
 
   .main-view {
     width: 100%;
+    overflow-y: scroll;
+    height: 100vh;
   }
 
   .sidebar {
@@ -265,6 +316,10 @@ a {
 
   .toggle {
     display: block;
+  }
+
+  .welcome-note {
+    margin: 13rem auto;
   }
 }
 
@@ -275,6 +330,40 @@ a {
   form {
     width: 50%;
     margin: auto;
+  }
+}
+
+@media (max-width: 425px) {
+  .form-text-area {
+    margin-top: 6rem;
+  }
+
+  .note-body article {
+    margin-top: 4rem;
+  }
+
+  .note-body .button.button-danger {
+    top: 20%;
+    padding: 8px;
+    line-height: 12px;
+  }
+
+  .button.edit {
+    top: 12%;
+    padding: 8px;
+    line-height: 17px;
+  }
+
+  .add {
+    padding: .3rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .five.columns {
+
+    margin-top: 50px;
+    width: 70vw;
   }
 }
 

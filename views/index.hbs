@@ -1,6 +1,12 @@
 <div class="welcome-note">
   {{#if user}}
   <h2>Welcome, {{user.firstname}}! </h2>
+  {{#if docs}}
+  <h3>You have created {{docs}} note(s) since you arrival.</h3>
+  {{else}}
+  <h3>You have created 0 note(s) since you arrival.</h3>
+
+  {{/if}}
   <p>
     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium ab aperiam tempore odio ea sunt nihil sit
     error quas, sequi aliquam, necessitatibus fugit laborum corporis vitae maiores consequatur rerum dicta? Totam magnam
@@ -9,8 +15,6 @@
   <p>
     <a href="/users/write" class="button button-primary"> Get Started</a>
   </p>
-  {{else}}
-  <h2>Login <a href="/users/signin">here</a> to get started </h2>
   {{/if}}
 
 </div>

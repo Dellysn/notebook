@@ -15,7 +15,7 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const app = express();
 const {
-  parseHTML
+  stripTags: stripTags
 } = require("./helpers/handlebars");
 const methodOverride = require("method-override");
 mongoose.Promise = global.Promise;
@@ -38,7 +38,7 @@ app.engine(
     layoutsDir: __dirname + "/views/layouts/",
     partialsDir: __dirname + "/views/partials/",
     helpers: {
-      parseHTML: parseHTML
+      stripTags: stripTags
     }
   })
 );
