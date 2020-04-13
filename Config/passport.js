@@ -4,20 +4,21 @@ const User = require("../models/User");
 
 module.exports = function (passport) {
   passport.use(
-    new LocalStrategy({
+    new LocalStrategy(
+      {
         usernameField: "email",
-        session: true
+        session: true,
       },
       function (email, password, done) {
         //    Find User by email
         let condition = {
-          email: email
+          email: email,
         };
         User.findOne(condition).then(function (user) {
           // check if its user
           if (!user) {
             return done(null, false, {
-              message: "this user email is not registered"
+              message: "this user email is not registered",
             });
           }
 
@@ -30,7 +31,7 @@ module.exports = function (passport) {
               return done(null, user);
             } else {
               return done(null, false, {
-                message: "password or username invalid"
+                message: "password or username invalid",
               });
             }
           });
