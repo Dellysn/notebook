@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const Notebook = require("../models/Note");
-const { ensureAuthentication } = require("../config/auth");
+const { ensureAuthentication } = require("../Config/auth");
 /* GET home page. */
 router.get("/", ensureAuthentication, function (req, res, next) {
   Notebook.countDocuments({
