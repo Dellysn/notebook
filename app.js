@@ -5,7 +5,7 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const exphbs = require("express-handlebars");
 const {
-  allowInsecurePrototypeAccess
+  allowInsecurePrototypeAccess,
 } = require("@handlebars/allow-prototype-access");
 const Handlebars = require("handlebars");
 const mongoose = require("mongoose");
@@ -14,9 +14,7 @@ const session = require("express-session");
 const flash = require("connect-flash");
 const passport = require("passport");
 const app = express();
-const {
-  stripTags: stripTags
-} = require("./helpers/handlebars");
+const { stripTags: stripTags } = require("./helpers/handlebars");
 const methodOverride = require("method-override");
 mongoose.Promise = global.Promise;
 
@@ -38,8 +36,8 @@ app.engine(
     layoutsDir: __dirname + "/views/layouts/",
     partialsDir: __dirname + "/views/partials/",
     helpers: {
-      stripTags: stripTags
-    }
+      stripTags: stripTags,
+    },
   })
 );
 
@@ -53,7 +51,7 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(
   express.urlencoded({
-    extended: false
+    extended: false,
   })
 );
 app.use(cookieParser());
@@ -64,7 +62,7 @@ app.use(bodyParser.json());
 // parse application/x-www-form-urlencoded
 app.use(
   bodyParser.urlencoded({
-    extended: false
+    extended: false,
   })
 );
 
@@ -77,7 +75,7 @@ app.use(
   session({
     secret: "key",
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
   })
 );
 // connect-flash middleware
@@ -95,7 +93,6 @@ app.use(function (req, res, next) {
   res.locals.user = req.user;
   next();
 });
-
 
 // Using Routes
 app.use("/", indexRouter);
