@@ -11,19 +11,19 @@
 @platinum: #DFE6E1
 
 */
-
 html {
   margin: 0;
   padding: 0;
 }
 
 body {
-  /* overflow-y: hidden; */
+
   margin: inherit;
   padding: inherit;
   font-family: "Nanum Gothic", sans-serif !important;
 }
 
+/* 
 a {
   text-decoration: none;
   color: #000000;
@@ -49,9 +49,9 @@ a {
 .navbar .site-name a,
 .navbar .toggle {
   color: #f0f0f0;
-}
+} */
 
-.container-fluid {
+/* .container-fluid {
   max-width: 100%;
   min-height: 100vh;
   display: flex;
@@ -60,9 +60,9 @@ a {
   background-size: contain;
   background-position: 100% 100%;
 
-}
+} */
 
-.sidebar {
+/* .sidebar {
   height: 100vh;
   width: 100%;
   background-color: #ECF9ED;
@@ -87,8 +87,6 @@ a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
-
 }
 
 .five.columns {
@@ -107,7 +105,7 @@ a {
 }
 
 .note-body {
-  /* border: 2px solid; */
+  
   border-radius: 5px;
   padding: 2rem;
   margin-top: 6rem;
@@ -209,14 +207,14 @@ a {
   padding: 2rem;
   color: #464545;
   font-weight: 800;
-}
+} */
 
 /* 
 
 @CSS Utils classes
 */
 /* alerts */
-.alert {
+/* .alert {
   width: 100%;
   height: auto;
   color: #f0f0f0;
@@ -241,10 +239,10 @@ a {
   width: 100%;
   top: 12.5%;
   left: 0;
-}
+} */
 
 /* @buttons */
-.notes .button {
+/* .notes .button {
   border: none;
   border-radius: 0;
 }
@@ -267,19 +265,19 @@ a {
   background: rgb(71, 194, 102);
   color: #f0f0f0;
 
-}
+} */
 
 /* @Badges */
-.badges {
+/* .badges {
   font-size: 0.98rem;
   background: grey;
   border-radius: 50%;
   padding: 0.5rem;
   color: #f0f0f0;
-}
+} */
 
 /* @add Button */
-.add {
+/* .add {
   font-size: 3rem;
   position: fixed;
   right: 5%;
@@ -292,94 +290,54 @@ a {
   text-align: center;
   border-radius: 100%;
   z-index: 999;
-}
+} */
 
-/* mobile first queries */
 
-/* Larger than mobile */
 
-@media (max-width: 768px) {
-  .container-fluid {
-    background-size: cover;
-    background-position: center;
-  }
 
-  .main-view {
-    width: 100%;
-    overflow-y: scroll;
-    height: 100vh;
-  }
-
-  .sidebar {
+/*.sidebar {
     margin-left: -90rem;
   }
 
   .toggle {
     display: block;
-  }
+  } */
 
-  .welcome-note {
-    margin: 13rem auto;
-  }
-}
+/* Mobile first queries */
 
-/* Larger than Phablet */
-@media (max-width: 550px) {
-  .main-view {}
+/* Larger than mobile */
+@media (min-width: 400px) {}
 
-  form {
-    width: 50%;
-    margin: auto;
-  }
-}
-
-@media (max-width: 425px) {
-  .form-text-area {
-    margin-top: 6rem;
-  }
-
-  .note-body article {
-    margin-top: 4rem;
-  }
-
-  .note-body .button.button-danger {
-    top: 20%;
-    padding: 8px;
-    line-height: 12px;
-  }
-
-  .button.edit {
-    top: 12%;
-    padding: 8px;
-    line-height: 17px;
-  }
-
-  .add {
-    padding: .3rem;
-  }
-}
-
-@media (max-width: 400px) {
-  .five.columns {
-
-    margin-top: 50px;
-    width: 70vw;
-  }
-}
+/* Larger than phablet */
+@media (min-width: 550px) {}
 
 /* Larger than tablet */
-@media (min-width: 750px) {
-  .main-view {
-    width: 100%;
-  }
-}
+@media (min-width: 750px) {}
 
 /* Larger than desktop */
-@media (min-width: 1000px) {
-  .main-view {}
-}
+@media (min-width: 1000px) {}
 
-/* Larger than desktop HD */
+/* Larger than Desktop HD */
 @media (min-width: 1200px) {
-  .main-view {}
+  .container-fluid {
+    max-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url(../images/student.png) no-repeat;
+    background-size: contain;
+    background-position: 100% 100%;
+
+  }
+
+  .navbar {
+    width: 100%;
+    background-color: rgb(80, 219, 166);
+    padding: 1.2rem;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+
+  }
 }
